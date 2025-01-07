@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
 
-        new Game();
+        Game game = new Game();
+        game.start();
     }
 }

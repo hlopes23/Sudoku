@@ -61,7 +61,6 @@
         }
 
 
-
         private boolean validPlacement(int[][] editableBoard, int row, int col, int number) {
             for (int c = 0; c < BOARD_SIZE; c++) {
                 if(editableBoard[row][c] == number) {
@@ -88,7 +87,6 @@
         }
 
 
-
         private void remove(int editable[][], Difficulty difficulty) {
             int filledCells = 81;
 
@@ -111,18 +109,18 @@
         public void printEditable() {
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println("\u001B[30m" + "- - - - - - - - - - -");
+                    System.out.println("\u001B[30m" + "- - - - - - - - - - -" + "\u001B[0m");
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print("\u001B[30m" + "| ");
+                        System.out.print("\u001B[30m" + "| " + "\u001B[0m");
                     }
                     final int cellValue = editableBoard[row][col];
 
                     if (cellValue == 0){
                         System.out.print(" ");
                     } else{
-                        System.out.print("\u001B[32m" + cellValue);
+                        System.out.print("\u001B[32m" + cellValue + "\u001B[0m");
                     }
                     System.out.print(" ");
                 }
@@ -134,11 +132,11 @@
         public void printOriginal() {
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println("\u001B[30m" + "- - - - - - - - - - -");
+                    System.out.println("\u001B[30m" + "- - - - - - - - - - -" + "\u001B[0m");
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print("\u001B[30m" + "| ");
+                        System.out.print("\u001B[30m" + "| " + "\u001B[0m");
                     }
                     final int cellValue = originalBoard[row][col];
 
@@ -146,14 +144,13 @@
                         System.out.print(" ");
 
                     } else{
-                        System.out.print("\u001B[32m" + cellValue);
+                        System.out.print("\u001B[32m" + cellValue + "\u001B[0m");
                     }
                     System.out.print(" ");
                 }
                 System.out.println();
             }
         }
-
 
 
         public void updateCell(int row, int col, int num) throws UpdateCellException {
