@@ -9,16 +9,18 @@
 
 
 
-        public Board(Difficulty difficulty) {
+        public Board(Difficulty difficulty) throws InterruptedException {
             originalBoard = new int[BOARD_SIZE][BOARD_SIZE];
             editableBoard = new int[BOARD_SIZE][BOARD_SIZE];
             notEditableBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
 
             boolean isFilled = fillBoard(editableBoard, originalBoard);
+            System.out.println('\n' + "Generating board... Get ready!");
 
             if (isFilled) {
                 remove(editableBoard, difficulty);
                 markNotEditableCells();
+                //Thread.sleep(6000);
                 printEditable();
             }
         }
@@ -50,7 +52,7 @@
         }
 
 
-        private boolean markNotEditableCells(){
+        public boolean markNotEditableCells(){
             for (int row = 0; row < BOARD_SIZE; row++) {
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if (editableBoard[row][col] != 0) {
@@ -110,19 +112,19 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println(Colors.BLACK + Colors.BOLD + "- - - - - - - - - - -" + Colors.DEFAULT);
+                    System.out.println(Colors.WHITE + Colors.BOLD + "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print(Colors.BLACK + Colors.BOLD + "| " + Colors.DEFAULT);
+                        System.out.print(Colors.WHITE + Colors.BOLD + "⏐ " + Colors.DEFAULT);
                     }
                     int cellValue = editableBoard[row][col];
 
                     if (!notEditableBoard[row][col]){ // if the cell is editable
                         if(editableBoard[row][col] == 0) {
-                            System.out.print(Colors.BLACK + "." + Colors.DEFAULT);
+                            System.out.print(Colors.WHITE + "." + Colors.DEFAULT);
                         } else {
-                            System.out.print(Colors.BLACK + cellValue + Colors.DEFAULT);
+                            System.out.print(Colors.WHITE + cellValue + Colors.DEFAULT);
                         }
 
                     } else{
@@ -140,11 +142,11 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println(Colors.BLACK + Colors.BOLD + "- - - - - - - - - - -" + Colors.DEFAULT);
+                    System.out.println(Colors.WHITE + Colors.BOLD + "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print(Colors.BLACK + Colors.BOLD + "| " + Colors.DEFAULT);
+                        System.out.print(Colors.WHITE + Colors.BOLD + "| " + Colors.DEFAULT);
                     }
                     final int cellValue = originalBoard[row][col];
 
@@ -192,5 +194,4 @@
                 }
             }
         }
-        
-    }
+        }
