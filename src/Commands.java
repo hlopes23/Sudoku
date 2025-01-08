@@ -1,4 +1,4 @@
-public enum Options {
+public enum Commands {
 
     SOLVECELL("Gives the player any cell."),
     SOLVE("Gives player the Sudoku."),
@@ -8,7 +8,7 @@ public enum Options {
 
     private String description;
 
-    private Options(String description){
+    private Commands(String description){
         this.description = description;
     }
 }

@@ -7,7 +7,7 @@ public enum Difficulty {
 
         private int numberOfFilledCells;
 
-    private Difficulty(int numberOfFilledCells){
+    Difficulty(int numberOfFilledCells){
         this.numberOfFilledCells = numberOfFilledCells;
     }
 

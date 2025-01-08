@@ -15,12 +15,12 @@
             notEditableBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
 
             boolean isFilled = fillBoard(editableBoard, originalBoard);
-            System.out.println('\n' + "Generating board... Get ready!");
+            System.out.println('\n' + "Generating board...");
 
             if (isFilled) {
                 remove(editableBoard, difficulty);
                 markNotEditableCells();
-                //Thread.sleep(6000);
+                Thread.sleep(3500);
                 printEditable();
             }
         }
@@ -112,11 +112,11 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println(Colors.WHITE + Colors.BOLD + "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" + Colors.DEFAULT);
+                    System.out.println(Colors.WHITE + Colors.BOLD + "⎼⎼⎼⎼⎼⎼⎹⎼⎼⎼⎼⎼⎼⎼⎹⎼⎼⎼⎼⎼⎼" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print(Colors.WHITE + Colors.BOLD + "⏐ " + Colors.DEFAULT);
+                        System.out.print(Colors.WHITE + Colors.BOLD + "⎹ " + Colors.DEFAULT);
                     }
                     int cellValue = editableBoard[row][col];
 
@@ -124,11 +124,11 @@
                         if(editableBoard[row][col] == 0) {
                             System.out.print(Colors.WHITE + "." + Colors.DEFAULT);
                         } else {
-                            System.out.print(Colors.WHITE + cellValue + Colors.DEFAULT);
+                            System.out.print(Colors.YELLOW + cellValue + Colors.DEFAULT);
                         }
 
                     } else{
-                        System.out.print(Colors.GREEN + Colors.BOLD + cellValue + Colors.DEFAULT);
+                        System.out.print(Colors.WHITE + Colors.BOLD + cellValue + Colors.DEFAULT);
                     }
                     System.out.print(" ");
                 }
@@ -142,7 +142,7 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println(Colors.WHITE + Colors.BOLD + "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯" + Colors.DEFAULT);
+                    System.out.println(Colors.WHITE + Colors.BOLD + "⎼⎼⎼⎼⎼⎼⎹⎼⎼⎼⎼⎼⎼⎼⎹⎼⎼⎼⎼⎼⎼" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {

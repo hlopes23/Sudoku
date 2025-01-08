@@ -6,6 +6,7 @@ public class Colors {
     public static final String RED = "\u001B[31m";
     public static final String DEFAULT = "\033[0m";
     public static final String BOLD = "\u001B[1m";
-    public static final String UNDERLINED = "\033[4m";
+    public static final String ITALIC = "\033[3m";
+
 
 }
