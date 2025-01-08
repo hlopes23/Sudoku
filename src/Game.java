@@ -17,7 +17,7 @@ public class Game {
     }
 
 
-    public void start (){
+    public void start(){
 
         while (true) {
             userInputs();
@@ -76,7 +76,6 @@ public class Game {
                 System.out.println(e.getMessage());
                 board.printEditable();
             }
-
             return;
         }
 
@@ -106,6 +105,7 @@ public class Game {
                     } catch (UpdateCellException e) {
                         System.out.println(e.getMessage());
                     }
+
                 }
 
                 case LEAVE -> {
