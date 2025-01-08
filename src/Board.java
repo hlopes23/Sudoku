@@ -110,23 +110,23 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println("\u001B[30m" + "\u001B[1m" + "- - - - - - - - - - -" + "\u001B[0m");
+                    System.out.println(Colors.BLACK + Colors.BOLD + "- - - - - - - - - - -" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print("\u001B[30m" + "\u001B[1m" + "| " + "\u001B[0m");
+                        System.out.print(Colors.BLACK + Colors.BOLD + "| " + Colors.DEFAULT);
                     }
                     int cellValue = editableBoard[row][col];
 
                     if (!notEditableBoard[row][col]){ // if the cell is editable
                         if(editableBoard[row][col] == 0) {
-                            System.out.print("\u001B[30m" + "." + "\u001B[0m");
+                            System.out.print(Colors.BLACK + "." + Colors.DEFAULT);
                         } else {
-                            System.out.print("\u001B[30m" + cellValue + "\u001B[0m");
+                            System.out.print(Colors.BLACK + cellValue + Colors.DEFAULT);
                         }
 
                     } else{
-                        System.out.print("\u001B[32m" + "\u001B[1m" + cellValue + "\u001B[0m");
+                        System.out.print(Colors.GREEN + Colors.BOLD + cellValue + Colors.DEFAULT);
                     }
                     System.out.print(" ");
                 }
@@ -140,11 +140,11 @@
             System.out.println(" ");
             for (int row = 0; row < BOARD_SIZE; row++) {
                 if ((row % SUB_BOARD_SIZE == 0) && (row != 0)) {
-                    System.out.println("\u001B[30m" + "\u001B[1m" + "- - - - - - - - - - -" + "\u001B[0m");
+                    System.out.println(Colors.BLACK + Colors.BOLD + "- - - - - - - - - - -" + Colors.DEFAULT);
                 }
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if ((col % SUB_BOARD_SIZE == 0) && (col != 0)) {
-                        System.out.print("\u001B[30m" + "\u001B[1m" + "| " + "\u001B[0m");
+                        System.out.print(Colors.BLACK + Colors.BOLD + "| " + Colors.DEFAULT);
                     }
                     final int cellValue = originalBoard[row][col];
 
@@ -152,7 +152,7 @@
                         System.out.print(" ");
 
                     } else{
-                        System.out.print("\u001B[32m" + "\u001B[1m" + cellValue + "\u001B[0m");
+                        System.out.print(Colors.GREEN + Colors.BOLD + cellValue + Colors.DEFAULT);
                     }
                     System.out.print(" ");
                 }
@@ -167,22 +167,21 @@
             if ((num < 1 || num > 9)
                     || !(row >= 0 && row <= 8)
                     || !(col >= 0 && col <= 8)) {
-                throw new UpdateCellException("\u001B[31m" + "Aaaah, almost there. Remember: only numbers between 1 and 9; rows and columns also between 1 and 9.");
+                throw new UpdateCellException(Colors.RED + "Aaaah, almost there. Remember: only numbers between 1 and 9; rows and columns also between 1 and 9." + Colors.DEFAULT);
             }
 
 
             if (notEditableBoard[row][col]){
-                throw new UpdateCellException("\u001B[31m" + "This cell cannot be edited. Please try another cell.");
+                throw new UpdateCellException(Colors.RED + "This cell cannot be edited. Please try another cell." + Colors.DEFAULT);
             }
-
             editableBoard[row][col] = num;
-
         }
 
 
         public int revealCell(int row, int col) {
             return originalBoard[row][col];
         }
+
 
         public void reset() {
             for (int row = 0; row < BOARD_SIZE; row++) {

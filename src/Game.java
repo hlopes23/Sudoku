@@ -27,20 +27,20 @@ public class Game {
 
     private void printIntro(){
         System.out.println(
-                '\n' + "\u001B[33m" + "\u001B[1m" + "  *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    S U D O K U    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    " + "\u001B[0m" +
-                        '\n' + '\n' + "Player name: "+"\u001B[0m");
+                '\n' + Colors.YELLOW + Colors.BOLD + "  *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    S U D O K U    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    *    " + Colors.BOLD + Colors.DEFAULT +
+                        '\n' + '\n' + "Player name: ");
     }
 
 
     private void printMenu(String name){
 
-        System.out.println('\n' + "Welcome to Sudoku " + "\u001B[1m" + name + "\u001B[0m" + "!" +
+        System.out.println('\n' + "Welcome to Sudoku " + Colors.BOLD + name + Colors.DEFAULT + "!" +
                 '\n' +
                 '\n' + "If this is your first time playing Sudoku, you must know that Sudoku is a numeric puzzle set in a 9X9 Grid, and the purpose of this" +
                 '\n' + "game is to complete the puzzle without repeating the numbers (1 to 9) in every row, every column, or in every 3x3 box. Easy, right?" +
                 '\n' +
                 '\n' +
-                "OPTIONS: " +
+                Colors.UNDERLINED + "OPTIONS" + Colors.DEFAULT + ":" +
                 '\n' + " solvecell + row number + col number -- gives you any cell you choose (ex: solvecell -> 3 9)." +
                 '\n' + " solve -- gives you the Sudoku (ex: solve)." +
                 '\n' + " restart -- restarts the puzzle you're trying to figure out. (ex: restart)" +
@@ -48,7 +48,7 @@ public class Game {
                 '\n' + " leave -- the game ends without the solution being revealed. (ex: leave)" +
                 '\n' +
                 '\n' +
-                "LEVELS: " +
+                Colors.UNDERLINED + "LEVELS" + Colors.DEFAULT + ":" +
                 '\n' + " Easy -- 40 cells available" +
                 '\n' + " Medium -- 34 cells available" +
                 '\n' + " Hard -- 27 cells available" +
