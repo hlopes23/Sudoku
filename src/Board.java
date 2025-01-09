@@ -19,7 +19,7 @@
 
             if (isFilled) {
                 remove(editableBoard, difficulty);
-                markNotEditableCells();
+                markNotEditableCell();
                 Thread.sleep(3500);
                 printEditable();
             }
@@ -52,14 +52,19 @@
         }
 
 
-        public boolean markNotEditableCells(){
+        public void markNotEditableCell(){
             for (int row = 0; row < BOARD_SIZE; row++) {
                 for (int col = 0; col < BOARD_SIZE; col++) {
                     if (editableBoard[row][col] != 0) {
                         notEditableBoard[row][col] = true;
                     }
                 }
-            } return false;
+            }
+        }
+
+
+        public void markNotEditableCell(int row, int col) {
+            notEditableBoard[row][col] = true;
         }
 
 

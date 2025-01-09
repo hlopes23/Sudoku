@@ -113,7 +113,7 @@ public class Game {
                     int num = board.revealCell(row, col);
 
                     board.updateCell(row, col, num);
-                    board.markNotEditableCells();
+                    board.markNotEditableCell(row,col);
                     board.printEditable();
                 } catch (UpdateCellException e) {
                     System.out.println(e.getMessage());
