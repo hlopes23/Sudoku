@@ -1,5 +1,5 @@
 public class UserInputException extends Exception {
   public UserInputException(String message) {
-    super("What?");
+    super(message);
   }
 }

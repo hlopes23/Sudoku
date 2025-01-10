@@ -14,13 +14,14 @@ public class Game {
         printMenu(name);
     }
 
+
     public void start() throws InterruptedException {
 
         Difficulty difficulty = Difficulty.valueOf((scanner.nextLine()).toUpperCase().trim());
         board = new Board(difficulty);
 
         while (true) {
-                userInputs();
+            userInputs();
         }
     }
 
@@ -62,12 +63,11 @@ public class Game {
     }
 
 
-
     private void userInputs() throws InterruptedException {
 
         String play = scanner.nextLine().trim();
 
-        if (play.matches("\\d+ \\d+ \\d+")) {
+        if (play.matches("(-?)\\d+ (-?)\\d+ (-?)\\d+")) {
             try {
                 String[] par = play.split(" ");
                 int row = Integer.parseInt(par[0]) - 1; // Conversion to index 0-8
@@ -117,6 +117,7 @@ public class Game {
                     board.printEditable();
                 } catch (UpdateCellException e) {
                     System.out.println(e.getMessage());
+                    board.printEditable();
                 }
 
             }
@@ -125,7 +126,7 @@ public class Game {
                 System.out.println('\n' + "Do you want to quit the game? Y/N" + '\n');
                 String inputExit = scanner.nextLine().trim();
                 if (inputExit.equalsIgnoreCase("Y")) {
-                    System.out.println('\n' + "Thank you " + name + "! See you next time 👋🏻");
+                    System.out.println('\n' + "THANK YOU " + name.toUpperCase() + "! SEE YOU NEXT TIME 👋🏻");
                     System.exit(1);
                 }
             }
