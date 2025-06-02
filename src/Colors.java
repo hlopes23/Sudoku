@@ -7,6 +7,4 @@ public class Colors {
     public static final String DEFAULT = "\033[0m";
     public static final String BOLD = "\u001B[1m";
     public static final String ITALIC = "\033[3m";
-
-
 }
